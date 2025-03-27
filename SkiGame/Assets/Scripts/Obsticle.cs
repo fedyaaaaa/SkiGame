@@ -14,6 +14,7 @@ public class Obsticle : MonoBehaviour
 
    protected private virtual void PlayerCollision() //protected - redz tas kas manto 
    {
+      PlayerEvents.CallOnHitEvent();
       Debug.Log("Player hit " + name);
    }
 }
