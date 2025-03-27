@@ -630,6 +630,7 @@ MonoBehaviour:
   speed: 0
   minAcceleration: -200
   maxAcceleration: 500
+  takeDamage: {fileID: 187915372}
 --- !u!114 &187915372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e9882c772330d48ad844bb1cd98467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHurt: 0
+  backwardForce: -700
+  upForce: 500
+  stunTime: 2
 --- !u!114 &187915373
 MonoBehaviour:
   m_ObjectHideFlags: 0
