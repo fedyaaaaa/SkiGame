@@ -6,6 +6,7 @@ public class RaceTimer : MonoBehaviour
 {
    private bool timerRunning = false;
    private float raceTime = 0;
+   [SerializeField] private Leaderboard leaderboard;
 
    private void Penalty()
    {
@@ -31,6 +32,7 @@ public class RaceTimer : MonoBehaviour
 
    private void StartRace()
    {
+      raceTime = 0;
       timerRunning = true;
       Debug.Log("Race Timer Started");
    }
@@ -38,7 +40,9 @@ public class RaceTimer : MonoBehaviour
    private void FinishRace()
    {
       timerRunning = false;
-      Debug.Log("Race Timer Finished");
+      leaderboard.AddTime(raceTime);
+      GameData.Instance.racesCompleted++;
+      Debug.Log("Races completed: " + GameData.Instance.racesCompleted);
       Debug.Log("Race Timer Finished");
    }
    
