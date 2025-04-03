@@ -8,12 +8,30 @@ public class Leaderboard : MonoBehaviour
 
     private void Awake()
     {
-    DontDestroyOnLoad(gameObject);    
+    bestTimes.Clear();
+    for (int i = 0; i < 5; i++)
+    {
+       bestTimes.Add(PlayerPrefs.GetFloat("time"+i, 9999999));
+    }
+   
     }
     
     public void AddTime(float time)
     {
         bestTimes.Add(time);
         bestTimes.Sort();
+        SaveData();
     }
+
+    private void SaveData()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if(i<bestTimes.Count)
+            PlayerPrefs.SetFloat("time"+i, bestTimes[i]);
+        }
+        PlayerPrefs.SetFloat("time",3);
+        PlayerPrefs.Save();
+    }
+    
 }
